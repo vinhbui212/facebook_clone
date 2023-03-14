@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './HomeHeader.css';
 import SearchIcon from '@material-ui/icons/Search';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Avatar } from '@material-ui/core';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import TelegramIcon from '@material-ui/icons/Telegram';
@@ -11,7 +11,7 @@ import { auth } from './firebase.js';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 function HomeHeader({ user }) {
-    const history = useHistory('');
+    const history = useNavigate('');
 
     if (user === false) {
         history.push("/login")
