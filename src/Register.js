@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import './Register.css';
 import { auth } from './firebase.js';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
-    const history = useHistory('');
+    const history = useNavigate('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -18,7 +18,7 @@ function Register() {
                     auth.user.updateProfile({
                         displayName: firstName + " " + lastName
                     }).then((s) => {
-                        history.push("/")
+                        history("/")
                     })
                 }
             })
