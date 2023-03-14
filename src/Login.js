@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import './Login.css';
 import { Link } from 'react-router-dom';
 import { auth } from './firebase.js';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail] = useState('');
-    const history = useHistory('');
+    const history = useNavigate('');
     const [password, setPassword] = useState('');
 
     const login = (event) => {
@@ -15,7 +15,7 @@ function Login() {
         auth.signInWithEmailAndPassword(email, password)
             .then((auth) => {
                 console.log(auth)
-                history.push("/");
+                history("/");
             })
             .catch((e) => {
                 if (
